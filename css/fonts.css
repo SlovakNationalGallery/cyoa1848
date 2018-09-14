@@ -1,0 +1,31 @@
+
+@charset "UTF-8";
+
+@font-face
+{
+  font-family: "Marlene Grande Medium";
+  src: url('../fonts/WF-031857-010432-001542.eot');
+  src: url('../fonts/WF-031857-010432-001542.eot?#iefix') format('embedded-opentype'), url('../fonts/WF-031857-010432-001542.woff') format('woff'), url('../fonts/WF-031857-010432-001542.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.f-marlene {
+	font-family:"Marlene Grande Medium"; 
+	font-weight: normal;
+}
+
+@font-face
+{
+  font-family: "SourceSansPro-SemiBold";
+  src: url('../fonts/SourceSansPro-SemiBold.eot');
+  src: url('../fonts/SourceSansPro-SemiBold.eot?#iefix') format('embedded-opentype'), url('../fonts/SourceSansPro-SemiBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.f-sourcesans {
+	font-family:"SourceSansPro-SemiBold"; 
+	font-weight: normal;
+}
+
