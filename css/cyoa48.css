@@ -184,6 +184,7 @@ tw-passage tw-expression[name='link-goto'] {
     font-size: 40px;
     line-height: 48px;
     text-decoration: underline;
+    text-transform: uppercase;
 }
 
 br + tw-expression[name='link-goto'] {
