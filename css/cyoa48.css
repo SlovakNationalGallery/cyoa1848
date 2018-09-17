@@ -163,8 +163,8 @@ tw-passage {
     text-align: center;
     font-weight: normal;
     font-size: 36px;
-    line-height: 54px;
-    line-spacing: 0.8px;
+    line-height: 55px;
+    line-spacing: 1.2px;
 }
 tw-passage h1 {
     font-size: 42px;
@@ -181,8 +181,8 @@ tw-passage h1 {
 tw-passage tw-expression[name='link-goto'] {
     font-family:"SourceSansPro-SemiBold"; 
     font-weight: normal;
-    font-size: 40px;
-    line-height: 48px;
+    /*font-size: 40px;*/
+    /*line-height: 48px;*/
     text-decoration: underline;
     text-transform: uppercase;
 }
