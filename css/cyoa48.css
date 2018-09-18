@@ -197,10 +197,10 @@ br + tw-expression[name='link-goto']:first-of-type {
 }
 
 tw-passage tw-link {
-    color: #FFFFFF;
+    color: #FFFFFF !important;
 }
 tw-passage tw-link:hover, tw-passage tw-link:active, tw-passage tw-link:focus {
-    color: #FFFFFF;
+    color: #FFFFFF !important;
 }
 
 
