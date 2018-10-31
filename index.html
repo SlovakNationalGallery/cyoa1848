@@ -11,6 +11,25 @@
 
 <body>
 
+<nav class="sidebar">
+	<div class="sidebar-home mt-42">
+		<a href="/">
+			<img src="./img/b-return.png">
+		</a>
+	</div>
+	<div class="sidebar-accumulator mt-300">
+		<div id="accumulator-bar" data-step="0"></div>
+		<div id="accumulator-counter">0</div>
+	</div>
+	<div class="sidebar-inventory mt-42">
+		<div class="inventory-item inventory-gun"></div>
+		<div class="inventory-item inventory-stamp"></div>
+		<div class="inventory-item inventory-certificate"></div>
+		<div class="inventory-item inventory-namecard"></div>
+		<div class="inventory-item inventory-penandletter"></div>
+	</div>
+</nav>
+
 <tw-story></tw-story>
 
 <tw-storydata name="181018-The rise of rebelion 48 - final" startnode="1" creator="Twine" creator-version="2.2.1" ifid="66580867-9BEE-4B10-9BE2-D4E72967DD9B" zoom="0.6" format="Harlowe" format-version="2.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">.css-typing {
@@ -30,23 +49,9 @@ from { width: 0; }
 
 
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
-	// Sidebar
-	function insert_sidebar() {
-		var sidebarInnerMarkup = '<div class="sidebar-home mv-40"><a href="/"><img src="./img/b-return.png"></a></div><div class="sidebar-accumulator mv-80 mh-30"><div class="accumulator-bar"><div class="accumulator-bar-part"></div><div class="accumulator-bar-part"></div><div class="accumulator-bar-part"></div><div class="accumulator-bar-part"></div><div class="accumulator-bar-part"></div><div class="accumulator-bar-part active"></div></div><div class="accumulator-counter">1234</div></div><div class="sidebar-inventory mv-80"><div class="inventory-item inventory-gun active"></div><div class="inventory-item inventory-stamp"></div></div><div class="sidebar-help mv-40"><a href="#help"><img src="./img/b-help.png"></a></div>';
-		
-		// create a p element for inserting in el
-		var sidebar = document.createElement('nav');
-		sidebar.classList.add('sidebar');
-		sidebar.innerHTML = sidebarInnerMarkup;
-		
-		var body = document.querySelector('body');
-		// append p as a new child to el
-		body.appendChild(sidebar);
-	}
-	//insert_sidebar();
-
 	// Accumulator
 	window.accumulator = 3;
+	window.accumulator_max = 5000;
 	window.accumulate = function (val) {
 		window.accumulator += val;
 		window.update_accumulator_ui();
@@ -54,32 +59,12 @@ from { width: 0; }
 	}
 	window.update_accumulator_ui = function () {
 		// counter
-		$('.accumulator-counter').text(window.accumulator);
+		$('#accumulator-counter').text(window.accumulator);
 		// bar
-		var num_bar_items = Math.round(window.accumulator / 1000);
-		if (num_bar_items > 0) {
-			$('.accumulator-bar-part').removeClass('active');
-			$('.accumulator-bar-part').slice(-num_bar_items).addClass('active');
-		}
-		else {
-			$('.accumulator-bar-part').removeClass('active');
-		}
+		var ratio = Math.round(10 * window.accumulator / window.accumulator_max);
+		console.log("ratio", ratio);
+		$('#accumulator-bar').attr('data-step', ratio);
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </script><tw-tag name="Hurban" color="blue"></tw-tag>,<tw-tag name="Štúr" color="red"></tw-tag>,<tw-tag name="speaker-stur" color="red"></tw-tag>,<tw-tag name="speaker-hurban" color="blue"></tw-tag>,<tw-tag name="speaker-hodza" color="green"></tw-tag>,<tw-tag name="bg-nature" color="yellow"></tw-tag>,<tw-tag name="bg-vienna" color="purple"></tw-tag>,<tw-tag name="bg-prison" color="blue"></tw-tag>,<tw-tag name="bg-pub" color="orange"></tw-tag>,<tw-tag name="bg-forest" color="green"></tw-tag>,<tw-tag name="bg-myjava" color="blue"></tw-tag>,<tw-tag name="bg-battlescene" color="purple"></tw-tag>,<tw-tag name="bg--interior" color="orange"></tw-tag>,<tw-tag name="bg-interior" color="orange"></tw-tag>,<tw-tag name="bg-nationalmeeting" color="yellow"></tw-tag>,<tw-tag name="bg-militarycamp" color="green"></tw-tag>,<tw-tag name="bg-forrest" color="green"></tw-tag>,<tw-tag name="bg-garden" color="red"></tw-tag>,<tw-tag name="bg-pitvor" color="orange"></tw-tag>,<tw-tag name="bg-certificate" color="orange"></tw-tag>,<tw-tag name="bg-brezova" color="orange"></tw-tag>,<tw-tag name="bg-staratura" color="red"></tw-tag>,<tw-tag name="bg-hurbanovaizba" color="yellow"></tw-tag>,<tw-tag name="bg-hurbanletter" color="blue"></tw-tag>,<tw-tag name="bg-sturovanavstivenka" color="blue"></tw-tag>,<tw-tag name="bg-beautifulwoman" color="red"></tw-tag>,<tw-tag name="bg-hurbansroom" color="yellow"></tw-tag><tw-passagedata pid="1" name="Narrator 1" tags="bg-nature" position="1058,111" size="100,100">Je rok meruosmi, inak rečenô tisícosemstoštyridsiaty ôsmy. Celú Európu zachvátil boj národností o svoju slobodu. 
 

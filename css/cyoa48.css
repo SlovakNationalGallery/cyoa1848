@@ -36,46 +36,76 @@ tw-icon {
     margin-left: 30px;
     margin-right: 30px;
 }
+.mt-42 {margin-top: 42px;}
+.mt-300 {margin-top: 300px;}
 
-.accumulator-bar .accumulator-bar-part {
+#accumulator-bar {
     display: inline-block;
-    width: 33px;
-    height: 33px;
-    margin: 4px;
-    background-image: url(../img/i-placeholder-dark.png);
+    width: 100%;
+    height: 98px;
+    background-size: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../img/i-fistumulator-0.svg);
 }
+#accumulator-bar[data-step="0"] {background-image: url(../img/i-fistumulator-0.svg);}
+#accumulator-bar[data-step="1"] {background-image: url(../img/i-fistumulator-1.svg);}
+#accumulator-bar[data-step="2"] {background-image: url(../img/i-fistumulator-2.svg);}
+#accumulator-bar[data-step="3"] {background-image: url(../img/i-fistumulator-3.svg);}
+#accumulator-bar[data-step="4"] {background-image: url(../img/i-fistumulator-4.svg);}
+#accumulator-bar[data-step="5"] {background-image: url(../img/i-fistumulator-5.svg);}
+#accumulator-bar[data-step="6"] {background-image: url(../img/i-fistumulator-6.svg);}
+#accumulator-bar[data-step="7"] {background-image: url(../img/i-fistumulator-7.svg);}
+#accumulator-bar[data-step="8"] {background-image: url(../img/i-fistumulator-8.svg);}
+#accumulator-bar[data-step="9"] {background-image: url(../img/i-fistumulator-9.svg);}
+#accumulator-bar[data-step="10"] {background-image: url(../img/i-fistumulator-10.svg);}
 
-.accumulator-bar .accumulator-bar-part.active {
-    background-image: url(../img/i-placeholder-light.png);
-}
 
 .sidebar-inventory .inventory-item {
     display: inline-block;
-    width: 65px;
-    height: 65px;
-    margin: 4px;
+    width: 100%;
+    height: 70px;
     background-size: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
-.sidebar-inventory .inventory-gun {
-    background-image: url(../img/i-gun-dark.png);
+.sidebar-inventory .inventory-namecard {
+    background-image: url(../img/i-namecard.svg);
+    height: 78px;
 }
-.sidebar-inventory .inventory-gun.active {
-    background-image: url(../img/i-gun-light.png);
+.sidebar-inventory .inventory-namecard.active {
+    background-image: url(../img/i-namecard-active.svg);
+}
+.sidebar-inventory .inventory-certificate {
+    background-image: url(../img/i-certificate.svg);
+    height: 106px;
+}
+.sidebar-inventory .inventory-certificate.active {
+    background-image: url(../img/i-certificate-active.svg);
 }
 .sidebar-inventory .inventory-stamp {
-    background-image: url(../img/i-placeholder-dark.png);
+    background-image: url(../img/i-stamp.svg);
+    height: 80px;
 }
 .sidebar-inventory .inventory-stamp.active {
-    background-image: url(../img/i-placeholder-light.png);
+    background-image: url(../img/i-stamp-active.svg);
 }
-
-.sidebar-help {
-    position: absolute;
-    bottom: 0;
-    left: 47.5px;
+.sidebar-inventory .inventory-gun {
+    background-image: url(../img/i-gun.svg);
+    height: 70px;
 }
-
-
+.sidebar-inventory .inventory-gun.active {
+    background-image: url(../img/i-gun-active.svg);
+}
+.sidebar-inventory .inventory-penandletter {
+    background-image: url(../img/i-penandletter.svg);
+    height: 102px;
+}
+.sidebar-inventory .inventory-penandletter.active {
+    background-image: url(../img/i-penandletter-active.svg);
+}
 
 /**************************/
 /* BACKGROUND AND AVATARS */
