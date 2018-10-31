@@ -203,6 +203,10 @@ tw-passage tw-link:hover, tw-passage tw-link:active, tw-passage tw-link:focus {
     color: #FFFFFF !important;
 }
 
+/* fix extra height from br's due to set statments */
+tw-passage tw-expression:empty + br {
+    display: none;
+}
 
 /**********************/
 /* BG & AVATAR IMAGES */
