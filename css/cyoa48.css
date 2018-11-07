@@ -12,6 +12,20 @@ tw-icon {
     opacity: 0.7;   
 }
 
+tw-icon.undo {
+    background-image: url('../img/b-undo.png');
+    background-repeat: no-repeat;
+    width: 33px;
+    height: 33px;
+}
+
+tw-icon.redo {
+    background-image: url('../img/b-redo.png');
+    background-repeat: no-repeat;
+    width: 33px;
+    height: 33px;
+}
+
 .sidebar {
     position: absolute;
     top: 0;
