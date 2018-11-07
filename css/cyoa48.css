@@ -137,22 +137,18 @@ tw-story {
 tw-story{
     background-repeat: no-repeat;
 }
-
 tw-story[tags*="bg-"]:not([tags*='speaker-']) {
     background-size: cover;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: overlay;
     background-position: center;
 }
-
 tw-story[tags*="speaker-"][tags*="bg-"] {
     background-position: 0% 100%, center;
 }
-
 tw-story[tags*="speaker-"][tags*="bg-"]:not([tags*='bg-kenburns']) {
     background-size: auto 70%, cover;
 }
-
 tw-story[tags*="speaker-"][tags*="bg-"][tags*="bg-kenburns"] {
     background-size: auto 70%, 120%;
 }
@@ -256,188 +252,12 @@ tw-passage tw-expression:empty + br {
 /* BG & AVATAR IMAGES */
 /**********************/
 
-/* bg-battlescene */
-tw-story[tags*="bg-battlescene"]:not([tags*='speaker-']) {
-    background-image: url(../img/bg-battlescene.jpg);
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: overlay;
-}
-
-tw-story[tags*="bg-battlescene"][tags*="speaker-stur"] {
-    background-image: 
-        url(../img/speaker-stur.png),
-        url(../img/bg-battlescene.jpg);
-    background-position: 99% 100%, center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: normal, overlay;
-}
-
-tw-story[tags*="bg-battlescene"][tags*="speaker-hurban"] {
-    background-image: 
-        url(../img/speaker-hurban.png),
-        url(../img/bg-battlescene.jpg);
-    background-position: 99% 100%, center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: normal, overlay;
-}
-
-tw-story[tags*="bg-battlescene"][tags*="speaker-hodza"] {
-    background-image: 
-        url(../img/speaker-hodza.png),
-        url(../img/bg-battlescene.jpg);
-    background-position: 5% 100%, center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: normal, overlay;
-}
-
-
-/* bg-forest */
-tw-story[tags*="bg-forest"]:not([tags*='speaker-']) {
-    background-image: url(../img/bg-forest.jpg);
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: overlay;
-}
-
-tw-story[tags*="bg-forest"][tags*="speaker-stur"] {
-    background-image: 
-        url(../img/speaker-stur.png),
-        url(../img/bg-forest.jpg);
-    background-position: 99% 100%, center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: normal, overlay;
-}
-
-tw-story[tags*="bg-forest"][tags*="speaker-hurban"] {
-    background-image: 
-        url(../img/speaker-hurban.png),
-        url(../img/bg-forest.jpg);
-    background-position: 99% 100%, center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: normal, overlay;
-}
-
-tw-story[tags*="bg-forest"][tags*="speaker-hodza"] {
-    background-image: 
-        url(../img/speaker-hodza.png),
-        url(../img/bg-forest.jpg);
-    background-position: 5% 100%, center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: normal, overlay;
-}
-
-
-/* bg-interior */
-tw-story[tags*="bg-interior"]:not([tags*='speaker-']) {
-    background-image: url(../img/bg-interior.jpg);
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: overlay;
-}
-
-tw-story[tags*="bg-interior"][tags*="speaker-stur"] {
-    background-image: 
-        url(../img/speaker-stur.png),
-        url(../img/bg-interior.jpg);
-    background-position: 99% 100%, center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: normal, overlay;
-}
-
-tw-story[tags*="bg-interior"][tags*="speaker-hurban"] {
-    background-image: 
-        url(../img/speaker-hurban.png),
-        url(../img/bg-interior.jpg);
-    background-position: 99% 100%, center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: normal, overlay;
-}
-
-tw-story[tags*="bg-interior"][tags*="speaker-hodza"] {
-    background-image: 
-        url(../img/speaker-hodza.png),
-        url(../img/bg-interior.jpg);
-    background-position: 5% 100%, center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: normal, overlay;
-}
-
-
-/* bg-militarycamp */
-tw-story[tags*="bg-militarycamp"]:not([tags*='speaker-']) {
-    background-image: url(../img/bg-militarycamp.jpg);
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: overlay;
-}
-
-tw-story[tags*="bg-militarycamp"][tags*="speaker-stur"] {
-    background-image: 
-        url(../img/speaker-stur.png),
-        url(../img/bg-militarycamp.jpg);
-    background-position: 99% 100%, center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: normal, overlay;
-}
-
-tw-story[tags*="bg-militarycamp"][tags*="speaker-hurban"] {
-    background-image: 
-        url(../img/speaker-hurban.png),
-        url(../img/bg-militarycamp.jpg);
-    background-position: 99% 100%, center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: normal, overlay;
-}
-
-tw-story[tags*="bg-militarycamp"][tags*="speaker-hodza"] {
-    background-image: 
-        url(../img/speaker-hodza.png),
-        url(../img/bg-militarycamp.jpg);
-    background-position: 5% 100%, center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: normal, overlay;
-}
-
-
-/* bg-myjava */
-tw-story[tags*="bg-myjava"]:not([tags*='speaker-']) {
-    background-image: url(../img/bg-myjava.jpg);
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: overlay;
-}
-
-tw-story[tags*="bg-myjava"][tags*="speaker-stur"] {
-    background-image: 
-        url(../img/speaker-stur.png),
-        url(../img/bg-myjava.jpg);
-    background-position: 99% 100%, center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: normal, overlay;
-}
-
-tw-story[tags*="bg-myjava"][tags*="speaker-hurban"] {
-    background-image: 
-        url(../img/speaker-hurban.png),
-        url(../img/bg-myjava.jpg);
-    background-position: 99% 100%, center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: normal, overlay;
-}
-
-tw-story[tags*="bg-myjava"][tags*="speaker-hodza"] {
-    background-image: 
-        url(../img/speaker-hodza.png),
-        url(../img/bg-myjava.jpg);
-    background-position: 5% 100%, center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: normal, overlay;
-}
-
-
 /* bg-nature */
 tw-story[tags*="bg-nature"]:not([tags*='speaker-']) {
     background-image: url(../img/bg-nature.jpg);
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: overlay;
 }
-
 tw-story[tags*="bg-nature"][tags*="speaker-stur"] {
     background-image: 
         url(../img/speaker-stur.png),
@@ -446,7 +266,6 @@ tw-story[tags*="bg-nature"][tags*="speaker-stur"] {
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
-
 tw-story[tags*="bg-nature"][tags*="speaker-hurban"] {
     background-image: 
         url(../img/speaker-hurban.png),
@@ -455,11 +274,42 @@ tw-story[tags*="bg-nature"][tags*="speaker-hurban"] {
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
-
 tw-story[tags*="bg-nature"][tags*="speaker-hodza"] {
     background-image: 
         url(../img/speaker-hodza.png),
         url(../img/bg-nature.jpg);
+    background-position: 5% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+
+
+/* bg-vienna */
+tw-story[tags*="bg-vienna"]:not([tags*='speaker-']) {
+    background-image: url(../img/bg-vienna.jpg);
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: overlay;
+}
+tw-story[tags*="bg-vienna"][tags*="speaker-stur"] {
+    background-image: 
+        url(../img/speaker-stur.png),
+        url(../img/bg-vienna.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-vienna"][tags*="speaker-hurban"] {
+    background-image: 
+        url(../img/speaker-hurban.png),
+        url(../img/bg-vienna.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-vienna"][tags*="speaker-hodza"] {
+    background-image: 
+        url(../img/speaker-hodza.png),
+        url(../img/bg-vienna.jpg);
     background-position: 5% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
@@ -472,7 +322,6 @@ tw-story[tags*="bg-prison"]:not([tags*='speaker-']) {
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: overlay;
 }
-
 tw-story[tags*="bg-prison"][tags*="speaker-stur"] {
     background-image: 
         url(../img/speaker-stur.png),
@@ -481,7 +330,6 @@ tw-story[tags*="bg-prison"][tags*="speaker-stur"] {
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
-
 tw-story[tags*="bg-prison"][tags*="speaker-hurban"] {
     background-image: 
         url(../img/speaker-hurban.png),
@@ -490,7 +338,6 @@ tw-story[tags*="bg-prison"][tags*="speaker-hurban"] {
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
-
 tw-story[tags*="bg-prison"][tags*="speaker-hodza"] {
     background-image: 
         url(../img/speaker-hodza.png),
@@ -507,7 +354,6 @@ tw-story[tags*="bg-pub"]:not([tags*='speaker-']) {
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: overlay;
 }
-
 tw-story[tags*="bg-pub"][tags*="speaker-stur"] {
     background-image: 
         url(../img/speaker-stur.png),
@@ -516,7 +362,6 @@ tw-story[tags*="bg-pub"][tags*="speaker-stur"] {
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
-
 tw-story[tags*="bg-pub"][tags*="speaker-hurban"] {
     background-image: 
         url(../img/speaker-hurban.png),
@@ -525,7 +370,6 @@ tw-story[tags*="bg-pub"][tags*="speaker-hurban"] {
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
-
 tw-story[tags*="bg-pub"][tags*="speaker-hodza"] {
     background-image: 
         url(../img/speaker-hodza.png),
@@ -536,35 +380,349 @@ tw-story[tags*="bg-pub"][tags*="speaker-hodza"] {
 }
 
 
-/* bg-vienna */
-tw-story[tags*="bg-vienna"]:not([tags*='speaker-']) {
-    background-image: url(../img/bg-vienna.jpg);
+/* bg-forest */
+tw-story[tags*="bg-forest"]:not([tags*='speaker-']) {
+    background-image: url(../img/bg-forest.jpg);
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: overlay;
 }
-
-tw-story[tags*="bg-vienna"][tags*="speaker-stur"] {
+tw-story[tags*="bg-forest"][tags*="speaker-stur"] {
     background-image: 
         url(../img/speaker-stur.png),
-        url(../img/bg-vienna.jpg);
+        url(../img/bg-forest.jpg);
     background-position: 99% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
-
-tw-story[tags*="bg-vienna"][tags*="speaker-hurban"] {
+tw-story[tags*="bg-forest"][tags*="speaker-hurban"] {
     background-image: 
         url(../img/speaker-hurban.png),
-        url(../img/bg-vienna.jpg);
+        url(../img/bg-forest.jpg);
     background-position: 99% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
-
-tw-story[tags*="bg-vienna"][tags*="speaker-hodza"] {
+tw-story[tags*="bg-forest"][tags*="speaker-hodza"] {
     background-image: 
         url(../img/speaker-hodza.png),
-        url(../img/bg-vienna.jpg);
+        url(../img/bg-forest.jpg);
+    background-position: 5% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+
+
+/* bg-myjava */
+tw-story[tags*="bg-myjava"]:not([tags*='speaker-']) {
+    background-image: url(../img/bg-myjava.jpg);
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: overlay;
+}
+tw-story[tags*="bg-myjava"][tags*="speaker-stur"] {
+    background-image: 
+        url(../img/speaker-stur.png),
+        url(../img/bg-myjava.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-myjava"][tags*="speaker-hurban"] {
+    background-image: 
+        url(../img/speaker-hurban.png),
+        url(../img/bg-myjava.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-myjava"][tags*="speaker-hodza"] {
+    background-image: 
+        url(../img/speaker-hodza.png),
+        url(../img/bg-myjava.jpg);
+    background-position: 5% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+
+
+/* bg-battlescene */
+tw-story[tags*="bg-battlescene"]:not([tags*='speaker-']) {
+    background-image: url(../img/bg-battlescene.jpg);
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: overlay;
+}
+tw-story[tags*="bg-battlescene"][tags*="speaker-stur"] {
+    background-image: 
+        url(../img/speaker-stur.png),
+        url(../img/bg-battlescene.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-battlescene"][tags*="speaker-hurban"] {
+    background-image: 
+        url(../img/speaker-hurban.png),
+        url(../img/bg-battlescene.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-battlescene"][tags*="speaker-hodza"] {
+    background-image: 
+        url(../img/speaker-hodza.png),
+        url(../img/bg-battlescene.jpg);
+    background-position: 5% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+
+
+/* bg-interior */
+tw-story[tags*="bg-interior"]:not([tags*='speaker-']) {
+    background-image: url(../img/bg-interior.jpg);
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: overlay;
+}
+tw-story[tags*="bg-interior"][tags*="speaker-stur"] {
+    background-image: 
+        url(../img/speaker-stur.png),
+        url(../img/bg-interior.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-interior"][tags*="speaker-hurban"] {
+    background-image: 
+        url(../img/speaker-hurban.png),
+        url(../img/bg-interior.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-interior"][tags*="speaker-hodza"] {
+    background-image: 
+        url(../img/speaker-hodza.png),
+        url(../img/bg-interior.jpg);
+    background-position: 5% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+
+/* bg-militarycamp */
+tw-story[tags*="bg-militarycamp"]:not([tags*='speaker-']) {
+    background-image: url(../img/bg-militarycamp.jpg);
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: overlay;
+}
+tw-story[tags*="bg-militarycamp"][tags*="speaker-stur"] {
+    background-image: 
+        url(../img/speaker-stur.png),
+        url(../img/bg-militarycamp.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-militarycamp"][tags*="speaker-hurban"] {
+    background-image: 
+        url(../img/speaker-hurban.png),
+        url(../img/bg-militarycamp.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-militarycamp"][tags*="speaker-hodza"] {
+    background-image: 
+        url(../img/speaker-hodza.png),
+        url(../img/bg-militarycamp.jpg);
+    background-position: 5% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+
+
+/* bg-garden */
+tw-story[tags*="bg-garden"]:not([tags*='speaker-']) {
+    background-image: url(../img/bg-garden.jpg);
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: overlay;
+}
+tw-story[tags*="bg-garden"][tags*="speaker-stur"] {
+    background-image: 
+        url(../img/speaker-stur.png),
+        url(../img/bg-garden.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-garden"][tags*="speaker-hurban"] {
+    background-image: 
+        url(../img/speaker-hurban.png),
+        url(../img/bg-garden.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-garden"][tags*="speaker-hodza"] {
+    background-image: 
+        url(../img/speaker-hodza.png),
+        url(../img/bg-garden.jpg);
+    background-position: 5% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+
+
+/* bg-pitvor */
+tw-story[tags*="bg-pitvor"]:not([tags*='speaker-']) {
+    background-image: url(../img/bg-pitvor.jpg);
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: overlay;
+}
+tw-story[tags*="bg-pitvor"][tags*="speaker-stur"] {
+    background-image: 
+        url(../img/speaker-stur.png),
+        url(../img/bg-pitvor.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-pitvor"][tags*="speaker-hurban"] {
+    background-image: 
+        url(../img/speaker-hurban.png),
+        url(../img/bg-pitvor.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-pitvor"][tags*="speaker-hodza"] {
+    background-image: 
+        url(../img/speaker-hodza.png),
+        url(../img/bg-pitvor.jpg);
+    background-position: 5% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+
+/* bg-brezova */
+tw-story[tags*="bg-brezova"]:not([tags*='speaker-']) {
+    background-image: url(../img/bg-brezova.jpg);
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: overlay;
+}
+tw-story[tags*="bg-brezova"][tags*="speaker-stur"] {
+    background-image: 
+        url(../img/speaker-stur.png),
+        url(../img/bg-brezova.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-brezova"][tags*="speaker-hurban"] {
+    background-image: 
+        url(../img/speaker-hurban.png),
+        url(../img/bg-brezova.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-brezova"][tags*="speaker-hodza"] {
+    background-image: 
+        url(../img/speaker-hodza.png),
+        url(../img/bg-brezova.jpg);
+    background-position: 5% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+
+/* bg-hurbansroom */
+tw-story[tags*="bg-hurbansroom"]:not([tags*='speaker-']) {
+    background-image: url(../img/bg-hurbansroom.jpg);
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: overlay;
+}
+tw-story[tags*="bg-hurbansroom"][tags*="speaker-stur"] {
+    background-image: 
+        url(../img/speaker-stur.png),
+        url(../img/bg-hurbansroom.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-hurbansroom"][tags*="speaker-hurban"] {
+    background-image: 
+        url(../img/speaker-hurban.png),
+        url(../img/bg-hurbansroom.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-hurbansroom"][tags*="speaker-hodza"] {
+    background-image: 
+        url(../img/speaker-hodza.png),
+        url(../img/bg-hurbansroom.jpg);
+    background-position: 5% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+
+
+/* bg-beautifulwoman-1 */
+tw-story[tags*="bg-beautifulwoman-1"]:not([tags*='speaker-']) {
+    background-image: url(../img/bg-beautifulwoman-1.jpg);
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: overlay;
+}
+tw-story[tags*="bg-beautifulwoman-1"][tags*="speaker-stur"] {
+    background-image: 
+        url(../img/speaker-stur.png),
+        url(../img/bg-beautifulwoman-1.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-beautifulwoman-1"][tags*="speaker-hurban"] {
+    background-image: 
+        url(../img/speaker-hurban.png),
+        url(../img/bg-beautifulwoman-1.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-beautifulwoman-1"][tags*="speaker-hodza"] {
+    background-image: 
+        url(../img/speaker-hodza.png),
+        url(../img/bg-beautifulwoman-1.jpg);
+    background-position: 5% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+
+
+/* bg-beautifulwoman-2 */
+tw-story[tags*="bg-beautifulwoman-2"]:not([tags*='speaker-']) {
+    background-image: url(../img/bg-beautifulwoman-2.jpg);
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: overlay;
+}
+tw-story[tags*="bg-beautifulwoman-2"][tags*="speaker-stur"] {
+    background-image: 
+        url(../img/speaker-stur.png),
+        url(../img/bg-beautifulwoman-2.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-beautifulwoman-2"][tags*="speaker-hurban"] {
+    background-image: 
+        url(../img/speaker-hurban.png),
+        url(../img/bg-beautifulwoman-2.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-beautifulwoman-2"][tags*="speaker-hodza"] {
+    background-image: 
+        url(../img/speaker-hodza.png),
+        url(../img/bg-beautifulwoman-2.jpg);
     background-position: 5% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
