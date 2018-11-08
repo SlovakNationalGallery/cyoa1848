@@ -48,25 +48,46 @@ from { width: 0; }
 }
 
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">
-	// Accumulator
-	window.accumulator = 3;
-	window.accumulator_max = 5000;
-	window.accumulate = function (val) {
-		window.accumulator += val;
-		window.update_accumulator_ui();
-		console.log(window.accumulator);
-	}
-	window.update_accumulator_ui = function () {
-		// counter
-		$('#accumulator-counter').text(window.accumulator);
-		// bar
-		var ratio = Math.round(10 * window.accumulator / window.accumulator_max);
-		console.log("ratio", ratio);
-		$('#accumulator-bar').attr('data-step', ratio);
-	}
+</style>
+<script role="script" id="twine-user-script" type="text/twine-javascript">
+function update_ui_accumulator () {
+	// counter
+	$('#accumulator-counter').text(harlowe.State.variables.fistumulator);
+	// bar
+	var ratio = Math.round(10 * harlowe.State.variables.fistumulator / harlowe.State.variables.fistumulator_max);
+	$('#accumulator-bar').attr('data-step', ratio);
+}
 
-</script><tw-tag name="Hurban" color="blue"></tw-tag>,<tw-tag name="Štúr" color="red"></tw-tag>,<tw-tag name="speaker-stur" color="red"></tw-tag>,<tw-tag name="speaker-hurban" color="blue"></tw-tag>,<tw-tag name="speaker-hodza" color="green"></tw-tag>,<tw-tag name="bg-nature" color="yellow"></tw-tag>,<tw-tag name="bg-vienna" color="purple"></tw-tag>,<tw-tag name="bg-prison" color="blue"></tw-tag>,<tw-tag name="bg-pub" color="orange"></tw-tag>,<tw-tag name="bg-forest" color="green"></tw-tag>,<tw-tag name="bg-myjava" color="blue"></tw-tag>,<tw-tag name="bg-battlescene" color="purple"></tw-tag>,<tw-tag name="bg-interior" color="orange"></tw-tag>,<tw-tag name="bg-militarycamp" color="green"></tw-tag>,<tw-tag name="bg-garden" color="red"></tw-tag>,<tw-tag name="bg-pitvor" color="orange"></tw-tag>,<tw-tag name="bg-brezova" color="orange"></tw-tag>,<tw-tag name="bg-staratura" color="red"></tw-tag>,<tw-tag name="bg-hurbansroom" color="yellow"></tw-tag>,<tw-tag name="bg-beautifulwoman-1" color="red"></tw-tag>,<tw-tag name="bg-beautifulwoman-2" color="red"></tw-tag><tw-passagedata pid="1" name="Narrator 1" tags="bg-nature" position="1058,111" size="100,100">Je rok meruosmi, inak rečenô tisícosemstoštyridsiaty ôsmy. Celú Európu zachvátil boj národností o svoju slobodu. 
+function update_ui_inventory () {
+	var inventory_items = [
+		'stamp',
+		'gun',
+		'certificate',
+		'penandletter',
+		'namecard'
+	];
+	inventory_items.forEach(item => {
+		harlowe.State.variables[item] ? $('.inventory-'+item).addClass('active') : $('.inventory-'+item).removeClass('active')
+	})
+}
+
+function update_ui () {
+	update_ui_accumulator();
+	update_ui_inventory();
+}
+
+// make vars accessible to JS and funcs to Harlowe Script
+// NB: this uses a scope escalation hack and may stop working in future versions of Harlowe
+if (!window.harlowe){
+	window.harlowe = {
+		"State": State,
+		"update_ui_accumulator": update_ui_accumulator,
+		"update_ui": update_ui
+	};
+}
+
+</script>
+<tw-tag name="Hurban" color="blue"></tw-tag>,<tw-tag name="Štúr" color="red"></tw-tag>,<tw-tag name="speaker-stur" color="red"></tw-tag>,<tw-tag name="speaker-hurban" color="blue"></tw-tag>,<tw-tag name="speaker-hodza" color="green"></tw-tag>,<tw-tag name="bg-nature" color="yellow"></tw-tag>,<tw-tag name="bg-vienna" color="purple"></tw-tag>,<tw-tag name="bg-prison" color="blue"></tw-tag>,<tw-tag name="bg-pub" color="orange"></tw-tag>,<tw-tag name="bg-forest" color="green"></tw-tag>,<tw-tag name="bg-myjava" color="blue"></tw-tag>,<tw-tag name="bg-battlescene" color="purple"></tw-tag>,<tw-tag name="bg-interior" color="orange"></tw-tag>,<tw-tag name="bg-militarycamp" color="green"></tw-tag>,<tw-tag name="bg-garden" color="red"></tw-tag>,<tw-tag name="bg-pitvor" color="orange"></tw-tag>,<tw-tag name="bg-brezova" color="orange"></tw-tag>,<tw-tag name="bg-staratura" color="red"></tw-tag>,<tw-tag name="bg-hurbansroom" color="yellow"></tw-tag>,<tw-tag name="bg-beautifulwoman-1" color="red"></tw-tag>,<tw-tag name="bg-beautifulwoman-2" color="red"></tw-tag><tw-passagedata pid="1" name="Narrator 1" tags="bg-nature" position="1058,111" size="100,100">Je rok meruosmi, inak rečenô tisícosemstoštyridsiaty ôsmy. Celú Európu zachvátil boj národností o svoju slobodu. 
 
 (live: 2s)[(t8n:&quot;dissolve&quot;)[V zemi Uhorsko zvanej sa tiež národy vzbúrili a slobodu i samostatnosť požadujú. ](stop:)]
 
@@ -74,6 +95,8 @@ from { width: 0; }
 
 &lt;!-- Accumulator --&gt;
 (set: $fistumulator to 10)
+(set: $fistumulator_max to 7513)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;
 
 &lt;!-- Inventory --&gt;
 (set: $stamp to false)
@@ -81,6 +104,7 @@ from { width: 0; }
 (set: $certificate to false)
 (set: $penandletter to false)
 (set: $namecard to false)
+
 </tw-passagedata><tw-passagedata pid="2" name="Narrator 2 " tags="bg-vienna" position="1057,296" size="100,100">V meste Viedeň, dňa šestnásteho septembra zrodí sa pod ich vedením prvá (link: &quot;Slovenská Národná Rada.&quot;)
 [Slovenská Národná Rada, ktorá sa o dôležitosti národné stará, potrebné rozkazy národu vydáva, poriadok stanoví, a vôbec všetku činnosť a zodpovednosť vykonáva.] 
 
@@ -91,7 +115,8 @@ Ako zareaguješ na výzvu Národnej rady?
 [[VYHLADÁŠ HURBANA]] 
 [[UKRYJEŠ SA V HOSTINCI U STARÉHO KOHNA]]
 [[SO ŠTÚROM VYDÁŠ SA NA SLOVENSKO.-&gt;Narrator 6]]</tw-passagedata><tw-passagedata pid="3" name="VYHLADÁŠ HURBANA" tags="bg-vienna speaker-hurban" position="980,454" size="100,100">Tvojej odvahe česť! Na druhý deň už päťsto mladých junákov, dobrovoľníkov, na nádraží železnice severnej vo Viedni, sadá do zvláštneho vlaku v desiatu hodinu večernú a ty milý dobrovoľník sedíš medzi nimi! [[SVITÁ NOVÉ RÁNO...-&gt;Narrator 6]]
-(set: $fistumulator to $fistumulator + 10)</tw-passagedata><tw-passagedata pid="4" name="POHÁRIK PRIJMEŠ" tags="bg-pub" position="773,300" size="100,100">Nedobré rozhodnutie. Oslabnutého na rozume i sile, ťa razom vytiahne z hostinca a tu sa hneď z neznámeho muža vykľuje verbovník maďarskej légie, nech vypovieš čo vieš inak ti život skončil!
+(set: $fistumulator to $fistumulator + 10)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="4" name="POHÁRIK PRIJMEŠ" tags="bg-pub" position="773,300" size="100,100">Nedobré rozhodnutie. Oslabnutého na rozume i sile, ťa razom vytiahne z hostinca a tu sa hneď z neznámeho muža vykľuje verbovník maďarskej légie, nech vypovieš čo vieš inak ti život skončil!
 
 [[VYPOVIEŠ, ABY SI SI ŽIVOT ZACHRÁNIL]]
 [[NIČ MU NEPOVIEŠ]]
@@ -100,7 +125,8 @@ Ako zareaguješ na výzvu Národnej rady?
 
 (live: 5s)[(t8n:&quot;dissolve&quot;)[[[SKÚSIŠ TO ZNOVU?-&gt;UKRYJEŠ SA V HOSTINCI U STARÉHO KOHNA]]](stop:)]
 
-(set: $fistumulator to $fistumulator - 10)</tw-passagedata><tw-passagedata pid="7" name="Narrator 6" tags="bg-nature" position="1121,454" size="100,100">Výprava slovenská s veselým spevom dorazí na hranice slovenské, zastane na návrší rozkošnom pri dohárajúcej žiare zapadajúceho slnka. Tu Ľudevít Štúr predstúpi pred svojich verných a takto im vraví...
+(set: $fistumulator to $fistumulator - 10)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="7" name="Narrator 6" tags="bg-nature" position="1121,454" size="100,100">Výprava slovenská s veselým spevom dorazí na hranice slovenské, zastane na návrší rozkošnom pri dohárajúcej žiare zapadajúceho slnka. Tu Ľudevít Štúr predstúpi pred svojich verných a takto im vraví...
 
 [[CHCEŠ ZVEDIEŤ AKO SA VYSLOVÍ ŠTÚR]]
 [[NEMÁŠ NA REČOVANIE ČAS A CEZ LES PREKROČÍŠ HRANICE]]</tw-passagedata><tw-passagedata pid="8" name="CHCEŠ ZVEDIEŤ AKO SA VYSLOVÍ ŠTÚR" tags="speaker-stur bg-nature" position="1166,590" size="100,100">„Bojovníci! Za tými vŕškami, tam leží Slovensko. Naša úloha je pekná, veľká, národ z biedy a ničoty vytrhnúť a priviesť ku slobode a sláve. Nože sľúbte nám teraz tu pri vstupe, že chcete za tieto veci mužne bojovať a keď na to príde, i za ne umierať.  
@@ -113,13 +139,15 @@ A ty dobrovoľník, ako mu odpovieš?
 [[SLUŠNE MU POĎAKUJEŠ A RADŠEJ SA VYDÁŠ ZA HURBANOM.-&gt;VYHLADÁŠ HURBANA]] 
 [[POHÁRIK PRIJMEŠ]]</tw-passagedata><tw-passagedata pid="10" name="NEMÁŠ NA REČOVANIE ČAS A CEZ LES PREKROČÍŠ HRANICE" tags="bg-forest" position="1019,591" size="100,100">Nedobrô si sa rozhodol, dobrovoľník. Ako sa predieraš húšťavou, lesom tmavým, medveďa ozrutného stretávaš a tvoj život vyhasína v jeho pazúroch.
 (live: 3s)[(t8n:&quot;dissolve&quot;)[[[Skúsiš znovu?-&gt;Narrator 6]]](stop:)]
-(set: $fistumulator to $fistumulator - 20)</tw-passagedata><tw-passagedata pid="11" name="Myjava" tags="bg-myjava" position="1096,830" size="100,100">Myjava! V dome výbornej vdovy Anny Kolényovej, sympatizantky dobrovoľníckeho zboru, založíte si hlavný stan národných bojovníkov na Slovensku. Zdvihni pohľad, priamo tu stojíš [[V SVIATOČNEJ IZBE...]]
+(set: $fistumulator to $fistumulator - 20)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="11" name="Myjava" tags="bg-myjava" position="1096,830" size="100,100">Myjava! V dome výbornej vdovy Anny Kolényovej, sympatizantky dobrovoľníckeho zboru, založíte si hlavný stan národných bojovníkov na Slovensku. Zdvihni pohľad, priamo tu stojíš [[V SVIATOČNEJ IZBE...]]
 </tw-passagedata><tw-passagedata pid="12" name="PRIJMEŠ ÚLOHU REČNÍKA" tags="bg-interior" position="1093,1200" size="100,100">Odvaha ti nechýba, preto vyber si z tejto  miestnosti ten predmet, o ktorom si myslíš, že ťa bude na tvojej ceste najlepšie sprevádzať. Vidíš ho v miestnosti?
 
 [[PEČATIDLO J.M.HURBANA SO SLOVENSKÝM ZNAKOM]]
 [[PIŠTOĽ J.M.HURBANA]]
 
-(set: $fistumulator to $fistumulator + 10)</tw-passagedata><tw-passagedata pid="13" name="RADŠEJ ZOSTÁVAŠ V MESTE" tags="speaker-stur bg-myjava" position="1225,1019" size="100,100">&quot;Nuž teda, dobre. Potom choď za Karolom Holubym, mladým novo ustanoveným komisárom. Budeš patriť k jeho družine&quot;. 
+(set: $fistumulator to $fistumulator + 10)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="13" name="RADŠEJ ZOSTÁVAŠ V MESTE" tags="speaker-stur bg-myjava" position="1225,1019" size="100,100">&quot;Nuž teda, dobre. Potom choď za Karolom Holubym, mladým novo ustanoveným komisárom. Budeš patriť k jeho družine&quot;. 
 Príde večer a ty...
 
 [[STRETÁVAŠ KAROLA HOLUBYHO.-&gt;ZAPÁLIA STARÚ TURÚ]] 
@@ -127,11 +155,18 @@ Príde večer a ty...
 [[STRETNEŠ KRÁSNU ŽENU]]</tw-passagedata><tw-passagedata pid="14" name="PEČATIDLO J.M.HURBANA SO SLOVENSKÝM ZNAKOM" tags="bg-interior" position="1046,1341" size="100,100">Máš pečatidlo!
 Schovaj si ho dobre do mešsca. Na koňa sadaj a [[K VELITEĽOVI VOJSKA]] sa vydaj na cestu.
 
-(set: $stamp to true)</tw-passagedata><tw-passagedata pid="15" name="PIŠTOĽ J.M.HURBANA" tags="bg-interior" position="1192,1344" size="100,100">Teraz máš pištol Hurbanovu!
+(set: $stamp to true)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="15" name="PIŠTOĽ J.M.HURBANA" tags="bg-interior" position="1192,1344" size="100,100">Teraz máš pištol Hurbanovu!
 Pištol riadne si za pás upevni. Na koňa rýchlo nasadaj a [[K VELITEĽOVI VOJSKA-&gt;k veliteľovi vojska 2]] sa úrýchlene ponáhľaj.
-(set: $gun to true)</tw-passagedata><tw-passagedata pid="16" name="K VELITEĽOVI VOJSKA" tags="bg-militarycamp" position="916,1411" size="100,100">Zastavíš koňa pred bránou do tábora, stráže namieria zbrane na tvoju hlavu. &quot;Vyslanec Slovenskej Národnej Rady som. K vášmu veliteľovi ma pustite!&quot;, zrúkneš na nich. &quot;A máš sa čím preukázať?&quot;, nedá sa odradiť stráž.
+(set: $gun to true)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="16" name="K VELITEĽOVI VOJSKA" tags="bg-militarycamp" position="924.3333333333334,1389.3333333333333" size="100,100">Zastavíš koňa pred bránou do tábora, stráže namieria zbrane na tvoju hlavu. &quot;Vyslanec Slovenskej Národnej Rady som. K vášmu veliteľovi ma pustite!&quot;, zrúkneš na nich. &quot;A máš sa čím preukázať?&quot;, nedá sa odradiť stráž.
 
-(live: 3s)[(t8n:&quot;dissolve&quot;)[[VYTIAHNEŠ PEČATIDLO J.M.HURBANA]](stop:)]</tw-passagedata><tw-passagedata pid="17" name="VYTIAHNEŠ PEČATIDLO J.M.HURBANA" tags="bg-militarycamp" position="911,1536" size="100,100">Stráž ťa prepustí do tábora k veliteľovi.
+(live: 3s)[
+	(t8n:&quot;dissolve&quot;)[
+		[[VYTIAHNEŠ PEČATIDLO J.M.HURBANA]]
+	]
+(stop:)
+]</tw-passagedata><tw-passagedata pid="17" name="VYTIAHNEŠ PEČATIDLO J.M.HURBANA" tags="bg-militarycamp" position="911,1536" size="100,100">Stráž ťa prepustí do tábora k veliteľovi.
 &quot;Cisárskeho, alebo Kossuthovho ministerstva čakáte rozkazy?&quot;, pýtaš sa. Veliteľ napokon odpovie. &quot;Z Budína, od krajinského ministra.&quot; 
 Viac na teba nepozrie a rukou naznačí ti, že sa máš zberať k odchodu.
 
@@ -145,41 +180,49 @@ Vykročíš za ním, ale v tom cez dvere do pitvora zbadáš tieň postavy. A te
 (live: 8s)[(t8n:&quot;dissolve&quot;)[[[NASLEDUJEŠ ĽUDEVÍTA ŠTÚRA-&gt;Slávne národnie zhromaždenie]]
 [[TIEŇ TAJOMNÝ ŤA ZLÁKA]]](stop:)]
 
-(set: $fistumulator to $fistumulator + 10)</tw-passagedata><tw-passagedata pid="19" name="ZAJMEŠ VELITEĽA AKO RUKOJEMNÍKA" tags="bg-myjava" position="1069,1726" size="100,100">Prenasledovaný stotinou regimentu císárskeho a postrelený, vrazíš spolu s veliteľom do domu pani Koleníčky. Pri stole, na teba neveriacky pozerajú Hurban i Hodža. [[HURBAN VYDRAPNE TI PIŠTOĽ]]</tw-passagedata><tw-passagedata pid="20" name="VRÁTIŠ SA PRE PEČATIDLO" tags="bg-interior" position="1262,1589" size="100,100">(set: $stamp to true)
+(set: $fistumulator to $fistumulator + 10)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="19" name="ZAJMEŠ VELITEĽA AKO RUKOJEMNÍKA" tags="bg-myjava" position="1069,1726" size="100,100">Prenasledovaný stotinou regimentu císárskeho a postrelený, vrazíš spolu s veliteľom do domu pani Koleníčky. Pri stole, na teba neveriacky pozerajú Hurban i Hodža. [[HURBAN VYDRAPNE TI PIŠTOĽ]]</tw-passagedata><tw-passagedata pid="20" name="VRÁTIŠ SA PRE PEČATIDLO" tags="bg-interior" position="1262,1589" size="100,100">(set: $stamp to true)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;
 Tak sadaj na koňa a uháňaj späť do sviatočnej miestnosti a zober si pečatidlo. Kto nemá v hlave, má v nohách. Alebo lepšie rečenô v tvojom prípade v kopytách!
 
 [[BERIEŠ PEČATIDLO J.M.HURBANA-&gt;PEČATIDLO J.M.HURBANA SO SLOVENSKÝM ZNAKOM]]</tw-passagedata><tw-passagedata pid="21" name="S PIŠTOĽOU SA PRESTRIEĽAŠ DO TÁBORA" tags="bg-militarycamp" position="1428,1451" size="100,100">Horúca hlava! Takto osožný národnému povstaniu nie si. Veruže aj životom v tomto pochabom rozhodnutí zaplatíš. Tvoja cesta v povstaní skončila prv, než vlastne poriadne začala. Nabudúce plň rozkazy ti dané!
 
 (live: 5s)[(t8n:&quot;dissolve&quot;)[[[SKÚSIŠ HRAŤ ZNOVU?-&gt;k veliteľovi vojska 2]]](stop:)]
-(set: $fistumulator to $fistumulator - 40)</tw-passagedata><tw-passagedata pid="22" name="HURBAN VYDRAPNE TI PIŠTOĽ" tags="speaker-hurban bg-interior" position="1286,1806" size="100,100">&quot;Ach ty horúca hlava! Zajať veliteľa?! Do hodiny obsadí celá cisárska armáda náš hlavný stan i celé mesto!  Ľudevít, Michal rýchlo na kone!&quot; 
+(set: $fistumulator to $fistumulator - 40)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="22" name="HURBAN VYDRAPNE TI PIŠTOĽ" tags="speaker-hurban bg-interior" position="1286,1806" size="100,100">&quot;Ach ty horúca hlava! Zajať veliteľa?! Do hodiny obsadí celá cisárska armáda náš hlavný stan i celé mesto!  Ľudevít, Michal rýchlo na kone!&quot; 
 
 (live: 5s)[(t8n:&quot;dissolve&quot;)[Potom sa obráti plný hnevu na  teba. Čakáš, že ťa zastrelí, no Hurban takto prevraví. &quot;S hanbou budeš do koca života všetky smradľavé kúty vymetať, že si skazil národné povstanie!&quot; Potom mizne dverami preč.](stop:)]
 
 (live: 9s)[(t8n:&quot;dissolve&quot;)[[[SKÚSIŠ HRAŤ ZNOVU?-&gt;VYTIAHNEŠ PEČATIDLO J.M.HURBANA]]](stop:)]
-(set: $fistumulator to $fistumulator - 40)</tw-passagedata><tw-passagedata pid="23" name="SĽUBUJEŠ VERNOSŤ NÁRODNEJ RADE" tags="bg-nature" position="1098,714" size="100,100">Sláva ti! Podpíšeš prísahu a ňou zaväzuješ sa ku vernosti cisárovi Ferdinandovi a k rozkazom Národnej rady. Hurá a sláva zahučí po poliach, bubny zarachotia a v pochode vojenskom postupuje bojachtivý dobrovolnícky zbor ku hraniciam Slovenska. 
+(set: $fistumulator to $fistumulator - 40)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="23" name="SĽUBUJEŠ VERNOSŤ NÁRODNEJ RADE" tags="bg-nature" position="1098,714" size="100,100">Sláva ti! Podpíšeš prísahu a ňou zaväzuješ sa ku vernosti cisárovi Ferdinandovi a k rozkazom Národnej rady. Hurá a sláva zahučí po poliach, bubny zarachotia a v pochode vojenskom postupuje bojachtivý dobrovolnícky zbor ku hraniciam Slovenska. 
 [[AŽ PRÍDETE DO MESTA ...-&gt;Myjava]]
 
-(set: $fistumulator to $fistumulator + 10)</tw-passagedata><tw-passagedata pid="24" name="UVIDÍŠ ZÁHADNÉ ZELENÉ SVETLO" tags="bg-nature" position="1531,1250" size="100,100">Cestou po hradskej, zastihne ťa noc. V tom prazvláštny zvuk počuješ. 
+(set: $fistumulator to $fistumulator + 10)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="24" name="UVIDÍŠ ZÁHADNÉ ZELENÉ SVETLO" tags="bg-nature" position="1531,1250" size="100,100">Cestou po hradskej, zastihne ťa noc. V tom prazvláštny zvuk počuješ. 
 
 (live: 3s)[(t8n:&quot;dissolve&quot;)[Dvihne sa vietor a prstence zvláštnych farebných svetiel ťa obkolesia. Okrúhle čudo nad tebou visí, akoby tanier, z akého ti mater múčnu kašu dávala. ](stop:)]
 
 (live: 8s)[(t8n:&quot;dissolve&quot;)[Posledná myšlienka tvoja je: &quot;Rečníkom Národnej rady som sa mal radšej stať!&quot; Potom si ťa svetlo berie, mizne hore do nočnej oblohy. A ty zmizneš z tohoto sveta tiež.](stop:)]
 
 (live: 12s)[(t8n:&quot;dissolve&quot;)[[[SKÚSIŠ HRAŤ ZNOVU?-&gt;RADŠEJ ZOSTÁVAŠ V MESTE]]](stop:)]
-(set: $fistumulator to $fistumulator - 30)</tw-passagedata><tw-passagedata pid="25" name="POPRIEŠ VŠETKO" tags="bg-prison" position="1630,1148" size="100,100">Súd ukladá ti desať rokov šatlavy a nútených prác. Keď sa dostaneš na slobodu, je už dávno po povstaní. 
+(set: $fistumulator to $fistumulator - 30)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="25" name="POPRIEŠ VŠETKO" tags="bg-prison" position="1630,1148" size="100,100">Súd ukladá ti desať rokov šatlavy a nútených prác. Keď sa dostaneš na slobodu, je už dávno po povstaní. 
 
 (live: 3s)[(t8n:&quot;dissolve&quot;)[Nový cisár František Jozef I. je pri moci a iné poriadky a usporiadania v Uhorsku panujú.](stop:)]
 
 (live: 5s)[(t8n:&quot;dissolve&quot;)[Ľudevíť Štúr už je mŕtvy, a jeho dvaja verní priatelia a národobuditelia len s ťažkým úsilým a bez boja pokračujú v započatom boji za veci národné.](stop:)]
 
 (live: 7s)[(t8n:&quot;dissolve&quot;)[[[SKÚSIŠ HRAŤ ZNOVU?-&gt;RADŠEJ ZOSTÁVAŠ V MESTE]]](stop:)]
-(set: $fistumulator to $fistumulator - 30)</tw-passagedata><tw-passagedata pid="26" name="PRIZNÁŠ SA" tags="bg-prison" position="1613,1025" size="100,100">Na ortiel svoj čakáš, ale Karol Holuby predstúpi pred súd a všetku vinu aj za teba aj za ostatných svojich mužov, pred súdom, zoberie. 
+(set: $fistumulator to $fistumulator - 30)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="26" name="PRIZNÁŠ SA" tags="bg-prison" position="1613,1025" size="100,100">Na ortiel svoj čakáš, ale Karol Holuby predstúpi pred súd a všetku vinu aj za teba aj za ostatných svojich mužov, pred súdom, zoberie. 
 
 (live: 5s)[(t8n:&quot;dissolve&quot;)[Pustia ťa na slobodu. Holubyho popravia. Na jar nasledujúceho roku, ho spolu s ostatými dobrovoľníkmi pochováš s poctami aké len hrdinom prináležia. ](stop:)]
 
 (live: 10s)[(t8n:&quot;dissolve&quot;)[No kým sa tak stane, [[VRACIAŠ SA DO...-&gt;Slávne národnie zhromaždenie]]](stop:)]
 
-(set: $fistumulator to $fistumulator - 30)</tw-passagedata><tw-passagedata pid="27" name="AŽ K HORNÝM BZINCIAM" tags="bg-prison" position="1482,1023" size="100,100">Obklúčení maďarskými gardami vás zatýkajú. Pred štatariálny súd predstúpite, kde vinia vás z buričstva a inej protiuhorskej činnosti. Ako pred súdom vypovieš?
+(set: $fistumulator to $fistumulator - 30)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="27" name="AŽ K HORNÝM BZINCIAM" tags="bg-prison" position="1482,1023" size="100,100">Obklúčení maďarskými gardami vás zatýkajú. Pred štatariálny súd predstúpite, kde vinia vás z buričstva a inej protiuhorskej činnosti. Ako pred súdom vypovieš?
 
 [[POPRIEŠ VŠETKO]]
 [[PRIZNÁŠ SA]]</tw-passagedata><tw-passagedata pid="28" name="HODŽA SA OBRÁTI NA TEBA" tags="bg-interior speaker-hodza" position="1099,1069" size="100,100">&quot;Priateľu,  sledujeme ako dobre si počínaš na našej ceste. Vedz, že v tomto meste svoj tábor založený má aj stotina pluku cisárskeho, talianský Ceccopieriho regiment.&quot; 
@@ -211,13 +254,15 @@ Ale táto švárna dievčina, je prevelice uvedomelá. Ak si chceš jej srdce z�
 [[ĽUDEVÍT ŠTÚR]]
 [[JOZEF MILOSLAV HURBAN]]
 
-(set: $fistumulator to $fistumulator + 10)</tw-passagedata><tw-passagedata pid="36" name="ZRADCU PODUJMEŠ SA ODHALIŤ" tags="bg-garden" position="715,2006" size="100,100">Idúc po záhrade, cez okno do sviatočnej izby počuješ hlasnú rozpravu veliteľov povstania. Pod oknom akási stará babizňa sedí. Čosi zvláštne ťa na nej zaujme, spod ťažkej sukne trčí jej čižma... Ale s ostrohami! 
+(set: $fistumulator to $fistumulator + 10)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="36" name="ZRADCU PODUJMEŠ SA ODHALIŤ" tags="bg-garden" position="715,2006" size="100,100">Idúc po záhrade, cez okno do sviatočnej izby počuješ hlasnú rozpravu veliteľov povstania. Pod oknom akási stará babizňa sedí. Čosi zvláštne ťa na nej zaujme, spod ťažkej sukne trčí jej čižma... Ale s ostrohami! 
 Čo vykonáš?
  
  [[OSLOVÍŠ BABKU]]
  [[VOJDEŠ DO SVIATOČNEJ IZBY-&gt;ODMIETNEŠ HODŽU]]
  
- (set: $fistumulator to $fistumulator + 10)</tw-passagedata><tw-passagedata pid="37" name="ODMIETNEŠ HODŽU" tags="bg-interior" position="635,2142" size="100,100">A tu stane sa, čo nik nečakal. K veľkej, viac mravnej, ako hmotnej škode veci slovenskej vzplanie hádka medzi národnými vodcami.  Hodža opustí národnú radu ešte na Myjave.
+ (set: $fistumulator to $fistumulator + 10)
+ &lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="37" name="ODMIETNEŠ HODŽU" tags="bg-interior" position="635,2142" size="100,100">A tu stane sa, čo nik nečakal. K veľkej, viac mravnej, ako hmotnej škode veci slovenskej vzplanie hádka medzi národnými vodcami.  Hodža opustí národnú radu ešte na Myjave.
 
 [[ZOSTÁVAŠ S HURBANOM A ŠTÚROM-&gt;ĽUDEVÍT ŠTÚR]]
 [[ODCHÁDZAŠ S HODŽOM Z MYJAVY]]</tw-passagedata><tw-passagedata pid="38" name="ODCHÁDZAŠ S HODŽOM Z MYJAVY" tags="bg-nature speaker-hodza" position="680,2266" size="100,100">Spolu s Hodžom opúšaťaš Myjavu a tvoja účasť tu končí, ale do povstania sa vrátiš neskôr. 
@@ -227,7 +272,8 @@ Ale táto švárna dievčina, je prevelice uvedomelá. Ak si chceš jej srdce z�
 (live: 6s)[(t8n:&quot;dissolve&quot;)[Tiahol od Prešporka do baňských miest až po Košice. Na všetky slovenské strany očíšťal mestá, dediny a hory od guerilly, ochraňoval obyvateľov a po skončení svojej úlohy bol dňa 21. novembra 1849 v Prešporku slávnostným spôsobom rozpustený.](stop:)]
 
 (live: 9s)[(t8n:&quot;dissolve&quot;)[[[SKÚSIŠ HRAŤ ZNOVU?-&gt;PO TÝCHTO SLOVÁCH...]]](stop:)]
-(set: $fistumulator to $fistumulator - 60)</tw-passagedata><tw-passagedata pid="39" name="OŽENÍŠ SA S ANIČKOU" tags="bg-myjava" position="159,2977" size="100,100">Ešte v ten večer víťazný, vraciaš sa do Myjavy. Oženiť s Aničkou Koleníčkou sa chceš, no kým si bojoval, vydali ju za iného.
+(set: $fistumulator to $fistumulator - 60)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="39" name="OŽENÍŠ SA S ANIČKOU" tags="bg-myjava" position="159,2977" size="100,100">Ešte v ten večer víťazný, vraciaš sa do Myjavy. Oženiť s Aničkou Koleníčkou sa chceš, no kým si bojoval, vydali ju za iného.
 
 (live: 5s)[(t8n:&quot;dissolve&quot;)[Do povstania sa už nevrátiš. Stane sa z teba učiteľ, činnosti národnie stanú sa tvojim poslaním. ](stop:)]
 
@@ -244,6 +290,7 @@ Ozve sa výkrik!
 (live: 6s)[(t8n:&quot;dissolve&quot;)[Ale predtým [[BRKO]] si musíš zo skrinky vziať. Vidíš ho v miestnosti?](stop:)]
 
 </tw-passagedata><tw-passagedata pid="43" name="BRKO" tags="bg-interior" position="726,1844" size="100,100">(set: $penandletter to true)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;
 Máš ho! Dobre si ho uschovaj! Nieraz sa ti ešte zíde. 
 (live: 2s)[(t8n:&quot;dissolve&quot;)Potom sa rýchlo [[PONÁHĽAŠ ZA ĽUDEVÍTOM ŠTÚROM.-&gt;Slávne národnie zhromaždenie]]](stop:)</tw-passagedata><tw-passagedata pid="44" name="OSLOVÍŠ BABKU" tags="bg-garden" position="842,2003" size="100,100">&quot;Pánboh daj dobrého zdravia, stará mať&quot;, oslovíš babku. Ani zrak nezdvihne spod šatky a odchádza. Vzadu za domom, za  hustými kriakmi sa ti z očí stratí. Neváhaš a do kriakov skočíš. [[ALE TAM...]] </tw-passagedata><tw-passagedata pid="45" name="ALE TAM..." tags="bg-forest" position="848,2150" size="100,100">Babizňa strhne si šatku a ty v tom okamihu agenta maďarskej gardy zočíš. Čo teraz urobíš?
 [[AK MÁŠ, PIŠTOL VYTIAHNEŠ]] 
@@ -252,7 +299,8 @@ Máš ho! Dobre si ho uschovaj! Nieraz sa ti ešte zíde.
 
 </tw-passagedata><tw-passagedata pid="46" name="List Hurbanov" tags="bg-hurbansroom" position="194,2138" size="100,100">{(live:250ms)[&lt;p class=&quot;css-typing&quot;&gt;„Moja duša drahá! Nediv sa, že Ti sám nepíšem; chcem Ti aspoň na vedomie dať, ako sme vrazili do zeme našej. Prešli sme hranice v pondelok večer… Pokračovali sme doteraz bez krvi, ktovie ale, či to tak dlho bude! My sme už všetku poslušnosť ministerstvu a stoliciam vypovedali a ľud to s velikou radosťou prijal. Ja som včera pre náramné napnutie síl pri rečiach, ktoré som k ľudu držal, tak sa zoslabil, že som si hneď ľahnúť musel…“&lt;/p&gt;(stop:)]}
 
-[[PO DOPÍSANÍ LISTU...]]</tw-passagedata><tw-passagedata pid="47" name="Brko2" tags="bg-interior" position="61,1991" size="100,100">(set: $brkoalist to true)
+[[PO DOPÍSANÍ LISTU...]]</tw-passagedata><tw-passagedata pid="47" name="Brko2" tags="bg-interior" position="61,1991" size="100,100">(set: $penandletter to true)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;
 Už ho máš! Do batohu si ho dobre uschovaj. Nieraz sa ti ešte zíde. 
 
 [[NASPIATOK-&gt;List Hurbanov]]</tw-passagedata><tw-passagedata pid="48" name="POKRAČUJEŠ DO ĎALŠEJ VÝPRAVY" tags="bg-battlescene" position="408,2981" size="100,100">Dobrovoľníci v mnohých mestách na Slovensku pozbavia moci košútovcov a do oslobodených úradov vymenujú Slovákov. Pozakladajú miestne národnie rady a národnobuditeľsky sa činia. 
@@ -279,14 +327,16 @@ Vyslaný ku komandantovi tlmočíš: (link: &quot;príhlas národnej rady.&quot;
 A tak po chviľke Walmodenovi kyrysníci, prinútení otočia sa na odchod.
 [[POTOM SA VRÁTIŠ DO BREZOVEJ]]
 
-(set: $fistumulator to $fistumulator + 10)</tw-passagedata><tw-passagedata pid="55" name="POLNOČNO-ZÁPADNÁ STRANA" tags="bg-battlescene speaker-hurban" position="264,2663" size="100,100">Garda senická, šaštínska a ľud nahnaní, posilnení jednou ôsmou stotinou pluku Ceccopieriho k útoku je pripravený. 
+(set: $fistumulator to $fistumulator + 10)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="55" name="POLNOČNO-ZÁPADNÁ STRANA" tags="bg-battlescene speaker-hurban" position="264,2663" size="100,100">Garda senická, šaštínska a ľud nahnaní, posilnení jednou ôsmou stotinou pluku Ceccopieriho k útoku je pripravený. 
 
 (live: 3s)[(t8n:&quot;dissolve&quot;)[Dobrovoľníci šabľami a kosami vyrazia proti nepriateľovi. Bijú sa s riadnym vojskom, muž s mužom. Padne päť Brezovanov. ](stop:)]
 
 (live: 6s)[(t8n:&quot;dissolve&quot;)[Až pomoc z mesta prišlá, rozpráši ich sťa plevy po všetkých okolných vrchoch.&quot;
 [[POTOM SA VRÁTIŠ DO BREZOVEJ]]](stop:)]
 
-(set: $fistumulator to $fistumulator + 10)</tw-passagedata><tw-passagedata pid="56" name="VÝCHODNÁ STRANA" tags="speaker-hodza bg-battlescene" position="417,2657" size="100,100">&quot;Z tejto strany hlavná bitka odohrá sa. 11. stotina Ceccopieriho pluku a vyše 1000 gardistov maďarských, ktorých chrbát kryli dve eskadróny dragúnov vo Vrbovom sa stretne s doborovoľníkmi.
+(set: $fistumulator to $fistumulator + 10)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="56" name="VÝCHODNÁ STRANA" tags="speaker-hodza bg-battlescene" position="417,2657" size="100,100">&quot;Z tejto strany hlavná bitka odohrá sa. 11. stotina Ceccopieriho pluku a vyše 1000 gardistov maďarských, ktorých chrbát kryli dve eskadróny dragúnov vo Vrbovom sa stretne s doborovoľníkmi.
 
 (live: 4s)[(t8n:&quot;dissolve&quot;)[Naši sú ozbrojení kosami, cepami a sekerami, ale o to viac pevní v boji za slobodu.](stop:)]
 
@@ -295,7 +345,8 @@ A tak po chviľke Walmodenovi kyrysníci, prinútení otočia sa na odchod.
 (live: 10s)[(t8n:&quot;dissolve&quot;)[Bez výstrelu bolo 200 mužov odzbrojených.&quot;
 [[POTOM SA VRÁTIŠ DO BREZOVEJ]]](stop:)]
 
-(set: $fistumulator to $fistumulator + 10)</tw-passagedata><tw-passagedata pid="57" name="POTOM SA VRÁTIŠ DO BREZOVEJ" tags="bg-brezova" position="286,2877" size="100,100">Hurá, je tu prvé víťazstvo! Bojoval si statočne! I vďaka tebe máme nový deň slávy.
+(set: $fistumulator to $fistumulator + 10)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="57" name="POTOM SA VRÁTIŠ DO BREZOVEJ" tags="bg-brezova" position="286,2877" size="100,100">Hurá, je tu prvé víťazstvo! Bojoval si statočne! I vďaka tebe máme nový deň slávy.
 
 (live: 4s)[(t8n:&quot;dissolve&quot;)[Veselý je večer v tábore, slnko zapadá nad víťazmi, národ sa sám sebe ľúbi.](stop:)]
 
@@ -303,6 +354,7 @@ A tak po chviľke Walmodenovi kyrysníci, prinútení otočia sa na odchod.
 
 (live: 9s)[(t8n:&quot;dissolve&quot;)[Nuž vyber si svoj dovetok [[POKRAČUJEŠ DO ĎALŠEJ VÝPRAVY]]
 [[OŽENÍŠ SA S ANIČKOU]]](stop:)]</tw-passagedata><tw-passagedata pid="58" name="VIDÍŠ NAVŠTÍVENKU V MIESTNOSTI?" tags="speaker-stur bg-interior" position="385,2139" size="100,100">(set: $namecard to true)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;
 Našiel si ju! Dobre si ju uschovaj! A teraz pobaľ sa na cestu do [[BREZOVEJ]].</tw-passagedata><tw-passagedata pid="59" name="MICHAL MILOSLAV HODŽA" tags="speaker-hodza bg-interior" position="569,1997" size="100,100">Hodža ťa bokom od hlučného davu vedie. &quot;Statočný si a národniej rade oddaný, je tak?&quot; Prikývneš. Uprene na teba pozrie. &quot;Nie všetci sú takí. Medzi nami je zradca. Odhalíš ho?&quot;
 
 [[ZRADCU PODUJMEŠ SA ODHALIŤ]]
@@ -317,7 +369,8 @@ Ak už máš brko, k posteli Hurbanovej sadáš si a on ti takto [[LIST DIKTUJE.
 
 (live: 5s)[(t8n:&quot;dissolve&quot;)[Potom stráže rozostavíš, a mužstvo po dobrej večeri zaspí snom spravodlivých! Keď v tom dve hodiny po polnoci, padnú dva [[VÝSTRELY]] z pištolí...](stop:)]
 
-(set: $fistumulator to $fistumulator + 10)</tw-passagedata><tw-passagedata pid="63" name="V SVIATOČNEJ IZBE..." tags="bg-interior" position="1100,945" size="100,100">Pri tomto stole sa prijímajú vyslanstvá okolitých obcí, vydávajú sa rozkazy s podpisom Slovenskej národnej rady. 
+(set: $fistumulator to $fistumulator + 10)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="63" name="V SVIATOČNEJ IZBE..." tags="bg-interior" position="1100,945" size="100,100">Pri tomto stole sa prijímajú vyslanstvá okolitých obcí, vydávajú sa rozkazy s podpisom Slovenskej národnej rady. 
 
 Hneď za rána 19. septembra si ťa dávajú zavolať tí najdôležitejší. Vstúpiš do izby a...
 
@@ -333,13 +386,15 @@ Hneď za rána 19. septembra si ťa dávajú zavolať tí najdôležitejší. Vs
 
 [[OBLEČIEŠ SI JEHO UNIFORMU A VYDÁŠ SA DO NEPRIATEĽSKÉHO TÁBORA-&gt;SCHOVÁME SA V LESE, KÝM PRÍDE POSILA]]
 [[VRÁTIŠ SA DO HLAVNÉHO STANU, BY SI SPRÁVU PODAL-&gt;ODMIETNEŠ HODŽU]]</tw-passagedata><tw-passagedata pid="67" name="AK NEMÁŠ, DO HLAVNÉHO STANU SA VRÁTIŠ" tags="bg-interior" position="1011,2150" size="100,100">(set: $gun to true)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;
 Vezmeš pištol Hurbanovu!
 Riadne si ju si za pás upevni a na koňa rýchlo nasadaj. Maďarského špióna do lesa [[LAPAŤ-&gt;AK MÁŠ, PIŠTOL VYTIAHNEŠ]] rýchlo odchádzaš.</tw-passagedata><tw-passagedata pid="68" name="REČNÍK" tags="bg-interior" position="1247,1201" size="100,100">Odvaha ti nechýba a vraciaš sa do sviatočnej izby. Vyber si z tejto  miestnosti ten predmet, o ktorom si myslíš, že ťa bude na tvojej ceste najlepšie sprevádzať. Vidíš ho v miestnosti?
 
 [[PEČATIDLO J.M.HURBANA SO SLOVENSKÝM ZNAKOM]]
 [[PIŠTOĽ J.M.HURBANA]]
 
-(set: $fistumulator to $fistumulator + 10)</tw-passagedata></tw-storydata>
+(set: $fistumulator to $fistumulator + 10)
+&lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
