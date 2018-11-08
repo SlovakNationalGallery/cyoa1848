@@ -51,7 +51,7 @@ tw-sidebar tw-icon.redo {
     z-index: 1;
     color: var(--color-beige);
     font-size: 24px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,1);
 }
 
 .sidebar .restart {
@@ -228,8 +228,9 @@ tw-passage {
     text-align: center;
     font-weight: normal;
     font-size: 36px;
-    line-height: 55px;
-    line-spacing: 1.2px;
+    line-height: 56px;
+    letter-spacing: 0.8px;
+    text-shadow: 0px 0px 50px rgba(0, 0, 0, 0.7);
 }
 tw-passage h1 {
     font-size: 42px;
@@ -238,31 +239,32 @@ tw-passage h1 {
     letter-spacing: 0.1em;
 }
 
-/*tw-passage > tw-expression[name='link-goto']:first-of-type {
-    display: inline-block;
-    margin-top: 120px;
+/* select only navigational links, not inline expanding links */
+/*tw-passage tw-expression[name='link-goto'] {
+    font-size: 28px;
 }*/
-
-tw-passage tw-expression[name='link-goto'] {
-    font-family:"SourceSansPro-SemiBold"; 
-    font-weight: normal;
-    /*font-size: 40px;*/
-    /*line-height: 48px;*/
-    text-decoration: underline;
-    text-transform: uppercase;
-}
 
 br + tw-expression[name='link-goto'] {
     display: inline-block;
-    margin-bottom: 68px;
+    /*margin-top: 56px;*/
 }
 
-br + tw-expression[name='link-goto']:first-of-type {
-    margin-top: 120px;
+/* undo margin-top for all non-first passage links */
+br + tw-expression[name='link-goto'] ~ tw-expression[name='link-goto'] {
+    margin-top: 0;
 }
 
+
+/* select all tw-links (navigational and inline expanding) */
 tw-passage tw-link {
     color: #FFFFFF !important;
+    font-family:"SourceSansPro-SemiBold"; 
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 56px;
+    letter-spacing: 1.6px;
+    text-decoration: underline;
+    text-transform: uppercase;
 }
 tw-passage tw-link:hover, tw-passage tw-link:active, tw-passage tw-link:focus {
     color: #FFFFFF !important;
@@ -271,6 +273,14 @@ tw-passage tw-link:hover, tw-passage tw-link:active, tw-passage tw-link:focus {
 /* fix extra height from br's due to set statments */
 tw-passage tw-expression:empty + br {
     display: none;
+}
+
+/* decrease height of double line breaks to fit extra tall passages  */
+br + br {
+    display: block;
+    height: 0;
+    /*margin: 28px 0;*/
+    margin: 14px 0;
 }
 
 /**********************/
@@ -303,7 +313,7 @@ tw-story[tags*="bg-nature"][tags*="speaker-hodza"] {
     background-image: 
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.png),
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-nature.jpg);
-    background-position: 5% 100%, center;
+    background-position: 7% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
@@ -335,7 +345,7 @@ tw-story[tags*="bg-vienna"][tags*="speaker-hodza"] {
     background-image: 
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.png),
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-vienna.jpg);
-    background-position: 5% 100%, center;
+    background-position: 7% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
@@ -367,7 +377,7 @@ tw-story[tags*="bg-prison"][tags*="speaker-hodza"] {
     background-image: 
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.png),
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-prison.jpg);
-    background-position: 5% 100%, center;
+    background-position: 7% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
@@ -399,7 +409,7 @@ tw-story[tags*="bg-pub"][tags*="speaker-hodza"] {
     background-image: 
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.png),
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-pub.jpg);
-    background-position: 5% 100%, center;
+    background-position: 7% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
@@ -431,7 +441,7 @@ tw-story[tags*="bg-forest"][tags*="speaker-hodza"] {
     background-image: 
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.png),
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-forest.jpg);
-    background-position: 5% 100%, center;
+    background-position: 7% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
@@ -463,7 +473,7 @@ tw-story[tags*="bg-myjava"][tags*="speaker-hodza"] {
     background-image: 
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.png),
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-myjava.jpg);
-    background-position: 5% 100%, center;
+    background-position: 7% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
@@ -495,7 +505,7 @@ tw-story[tags*="bg-battlescene"][tags*="speaker-hodza"] {
     background-image: 
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.png),
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-battlescene.jpg);
-    background-position: 5% 100%, center;
+    background-position: 7% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
@@ -527,7 +537,7 @@ tw-story[tags*="bg-interior"][tags*="speaker-hodza"] {
     background-image: 
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.png),
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-interior.jpg);
-    background-position: 5% 100%, center;
+    background-position: 7% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
@@ -558,7 +568,7 @@ tw-story[tags*="bg-militarycamp"][tags*="speaker-hodza"] {
     background-image: 
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.png),
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-militarycamp.jpg);
-    background-position: 5% 100%, center;
+    background-position: 7% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
@@ -590,7 +600,7 @@ tw-story[tags*="bg-garden"][tags*="speaker-hodza"] {
     background-image: 
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.png),
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-garden.jpg);
-    background-position: 5% 100%, center;
+    background-position: 7% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
@@ -622,7 +632,7 @@ tw-story[tags*="bg-pitvor"][tags*="speaker-hodza"] {
     background-image: 
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.png),
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-pitvor.jpg);
-    background-position: 5% 100%, center;
+    background-position: 7% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
@@ -653,7 +663,7 @@ tw-story[tags*="bg-brezova"][tags*="speaker-hodza"] {
     background-image: 
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.png),
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-brezova.jpg);
-    background-position: 5% 100%, center;
+    background-position: 7% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
@@ -684,7 +694,7 @@ tw-story[tags*="bg-hurbansroom"][tags*="speaker-hodza"] {
     background-image: 
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.png),
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-hurbansroom.jpg);
-    background-position: 5% 100%, center;
+    background-position: 7% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
@@ -716,7 +726,7 @@ tw-story[tags*="bg-beautifulwoman-1"][tags*="speaker-hodza"] {
     background-image: 
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.png),
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-beautifulwoman-1.jpg);
-    background-position: 5% 100%, center;
+    background-position: 7% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
@@ -748,7 +758,7 @@ tw-story[tags*="bg-beautifulwoman-2"][tags*="speaker-hodza"] {
     background-image: 
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.png),
         url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-beautifulwoman-2.jpg);
-    background-position: 5% 100%, center;
+    background-position: 7% 100%, center;
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
