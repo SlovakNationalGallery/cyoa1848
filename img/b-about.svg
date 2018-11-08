@@ -1,0 +1,17 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #bebebe;
+      }
+    </style>
+  </defs>
+  <title>i-about</title>
+  <g>
+    <g>
+      <path class="cls-1" d="M19,23.12H17V18.28h1a3.44,3.44,0,1,0-3.44-3.44h-2A5.44,5.44,0,1,1,19,20.19Z"/>
+      <rect class="cls-1" x="15.64" y="25.4" width="4.72" height="2"/>
+    </g>
+    <path class="cls-1" d="M18,4A14,14,0,1,1,4,18,14,14,0,0,1,18,4m0-2A16,16,0,1,0,34,18,16,16,0,0,0,18,2Z"/>
+  </g>
+</svg>

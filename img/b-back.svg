@@ -1,0 +1,14 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>i-back</title>
+  <g>
+    <path class="cls-1" d="M18,2A16,16,0,1,0,34,18,16,16,0,0,0,18,2Zm0,30A14,14,0,1,1,32,18,14,14,0,0,1,18,32Z"/>
+    <polygon class="cls-1" points="17.36 12.04 15.94 10.63 8.49 18.08 15.88 25.47 17.29 24.05 12.32 19.08 26.09 19.08 26.09 17.08 12.32 17.08 17.36 12.04"/>
+  </g>
+</svg>

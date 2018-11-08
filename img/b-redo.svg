@@ -1,0 +1,14 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #bebebe;
+      }
+    </style>
+  </defs>
+  <title>i-redo</title>
+  <g>
+    <path class="cls-1" d="M18,2A16,16,0,1,0,34,18,16,16,0,0,0,18,2Zm0,30A14,14,0,1,1,32,18,14,14,0,0,1,18,32Z"/>
+    <path class="cls-1" d="M22.39,23.29V15.2a6.55,6.55,0,0,0-13.09,0v4.69h2V15.2a4.55,4.55,0,0,1,9.09,0v8l-1.95-1.95L17,22.68l4.41,4.4,4.4-4.4-1.42-1.42Z"/>
+  </g>
+</svg>
