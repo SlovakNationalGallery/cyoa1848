@@ -36,6 +36,7 @@ tw-icon.redo {
     z-index: 1;
     color: var(--color-beige);
     font-size: 24px;
+    background-color: rgba(0,0,0,0.5);
 }
 
 .mv-40 {
