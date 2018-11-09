@@ -1,0 +1,109 @@
+/* Fix fonts that render as bold in Firefox */
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: normal;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 900px;
+    margin: 116px auto 0;
+}
+
+.color-beige {
+    color: var(--color-beige);
+}
+
+.font-marlene {
+    font-family:"Marlene Grande Medium";
+    font-weight: normal;
+}
+.font-sourcesans {
+    font-family:"SourceSansPro-SemiBold";
+    font-weight: normal;
+}
+
+.text-shadow {
+    text-shadow: 0px 0px 50px rgba(0, 0, 0, 0.7);
+}
+
+.bg-landing {
+    background-image: url(../img/bg-landing-small.jpg);
+    background-color: rgba(0,0,0,0.65);
+    background-blend-mode: overlay;
+    background-size: cover;
+}
+
+.passage-title {
+    font-size: 56px;
+    letter-spacing: 1.6px;
+    margin-bottom: 0
+}
+
+.passage-subtitle {
+    font-size: 28px;
+    letter-spacing: 1.6px;
+    font-style: italic;
+    margin-top: 12px;
+    margin-bottom: 64px;
+}
+
+.passage-text {
+    font-size: 36px;
+    line-height: 56px;
+    letter-spacing: 0.8px;
+}
+
+.cta {
+    font-family:"SourceSansPro-SemiBold";
+    font-weight: normal;
+    background: none;
+    border: 2px solid #FFF;
+    font-size: 42px;
+    letter-spacing: 2.0px;
+    color: #FFF;
+    padding: 8px 30px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.mt100px {margin-top: 100px;}
+
+.link {
+    color: #FFFFFF !important;
+    font-family:"SourceSansPro-SemiBold"; 
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 56px;
+    letter-spacing: 1.6px;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+.link:hover, .link:active {
+    color: #FFFFFF !important;
+}
+
+.fixed {position: fixed;}
+
+.text-center {text-align: center;}
+.text-right {text-align: right;}
+
+.bottom-0 {bottom: 0;}
+.top-0 {top: 0;}
+.right-0 {right: 0;}
+
+.ma3 {margin: 1rem;}
+.ma4 {margin: 2rem;}
+.ma5 {margin: 4rem;}
+.ma6 {margin: 8rem;}
+
+.mt3 {margin-top: 1rem;}
+.mt4 {margin-top: 2rem;}
+.mt5 {margin-top: 4rem;}
+.mt6 {margin-top: 8rem;}
