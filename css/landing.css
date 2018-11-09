@@ -107,3 +107,19 @@ main {
 .mt4 {margin-top: 2rem;}
 .mt5 {margin-top: 4rem;}
 .mt6 {margin-top: 8rem;}
+
+
+/* ANIMATIONS */
+
+.anim-bg {
+    animation: bg-pan-up 60s linear forwards;
+}
+
+@keyframes bg-pan-up {
+    from { 
+        background-position: 0 10%;
+    }
+    to { 
+        background-position: 0 40%;
+    }
+}
