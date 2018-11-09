@@ -112,14 +112,22 @@ main {
 /* ANIMATIONS */
 
 .anim-bg {
-    animation: bg-pan-up 60s linear forwards;
+    animation: bg-pan-up 60s linear forwards infinite;
 }
 
 @keyframes bg-pan-up {
-    from { 
+    0% { 
+        background-color: rgba(0,0,0,1);
         background-position: 0 10%;
     }
-    to { 
+    5% {
+        background-color: rgba(0,0,0,0.65);
+    }
+    95% {
+        background-color: rgba(0,0,0,0.65);
+    }
+    100% { 
+        background-color: rgba(0,0,0,1);
         background-position: 0 40%;
     }
 }
