@@ -1,11 +1,3 @@
-/* Fix fonts that render as bold in Firefox */
-html {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  font-weight: normal;
-}
-
 html, body {
     margin: 0;
     padding: 0;

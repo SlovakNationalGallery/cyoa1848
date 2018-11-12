@@ -1,4 +1,3 @@
-
 @charset "UTF-8";
 
 @font-face
@@ -29,3 +28,10 @@
 	font-weight: normal;
 }
 
+/* Fix fonts that render as bold in Firefox */
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: normal;
+}
