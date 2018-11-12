@@ -756,3 +756,62 @@ tw-story[tags*="bg-beautifulwoman-2"][tags*="speaker-hodza"] {
     background-color: rgba(0,0,0,0.55);
     background-blend-mode: normal, overlay;
 }
+
+/**********/
+/* Modals */
+/**********/
+
+.modal-bg {
+    position: fixed;
+    display:block;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    display: flex;
+    width: 900px;
+    height: 860px;
+    margin: 120px auto 0;
+    background-color: black;
+    overflow: auto;
+    line-height: 52px;
+}
+
+.modal-content tw-expression {
+    margin-top: 40px;
+    display: block;
+}
+
+.modal-content h1 {
+    font-size: 56px;
+    line-height: 56px;
+    letter-spacing: 0.8px;
+    text-transform: initial;
+}
+
+.modal-border {
+    border-image-slice: 100;
+    border-image-width: 100px;
+    border-image-outset: 0;
+    border-image-repeat: repeat repeat;
+    border-image-source: url("../img/popup.jpg");
+    padding: 110px;
+}
+
+.modal-item {
+    margin: 50px auto;
+    width: 182px;
+    height: 182px;
+    background-size: 182px 182px;
+}
+.modal-item-namecard     {background-image: url(../img/i-namecard-popup.svg);}
+.modal-item-certificate  {background-image: url(../img/i-certificate-popup.svg);}
+.modal-item-stamp        {background-image: url(../img/i-stamp-popup.svg);}
+.modal-item-gun          {background-image: url(../img/i-gun-popup.svg);}
+.modal-item-penandletter {background-image: url(../img/i-penandletter-popup.svg);}
