@@ -39,11 +39,13 @@ html, body {
 
 .landing-title {
     font-size: 56px;
+    line-height: 56px;
     letter-spacing: 1.6px;
 }
 
 .landing-subtitle {
     font-size: 28px;
+    line-height: 56px;
     letter-spacing: 1.6px;
     font-style: italic;
     margin-top: 12px;
@@ -85,7 +87,7 @@ html, body {
     background: none;
     border: 2px solid #FFF;
     font-size: 42px;
-    letter-spacing: 2.0px;
+    letter-spacing: 1.6px;
     color: #FFF;
     padding: 8px 30px;
     border-radius: 8px;
