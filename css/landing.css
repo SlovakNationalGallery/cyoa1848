@@ -221,3 +221,29 @@ html, body {
         background-position: 0 40%;
     }
 }
+
+
+/* LANDING SWITCH */
+
+.language-switch {
+    list-style: none;
+}
+.language-switch li {
+    display: inline-block;
+    margin-left: 12px;
+}
+.language-switch a,
+.language-switch a:focus,
+.language-switch a:hover {
+    color: #FFF;
+    text-decoration: none;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.language-switch a {
+    /*border-bottom: 2px solid rgba(255,255,255, 0.3);*/
+}
+.language-switch a:hover, .language-switch a.active {
+    border-bottom: 2px solid rgba(255,255,255, 1);
+}
