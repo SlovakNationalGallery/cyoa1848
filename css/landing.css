@@ -37,7 +37,7 @@ html, body {
     background-position: center;
 }
 
-.landing-title, .about-title {
+.landing-title {
     font-size: 56px;
     letter-spacing: 1.6px;
 }
@@ -56,10 +56,27 @@ html, body {
     letter-spacing: 0.8px;
 }
 
-.about-text {
-    font-size: 22px;
-    line-height: 1.5;
+.about-title {
+    font-size: 56px;
+    line-height: 30px;
     letter-spacing: 0.8px;
+}
+
+.about-subtitle {
+    font-size: 32px;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+.about-lead {
+    font-size: 29px;
+    line-height: 30px;
+    font-weight: 100;
+}
+
+.about-text {
+    font-size: 20px;
+    line-height: 30px;
 }
 
 .landing-cta {
@@ -103,6 +120,7 @@ html, body {
 
 .debug * { outline: 1px solid gold; }
 
+.c-black {color: #000;}
 .bg-black {background-color: #000;}
 .bg-white {background-color: #FFF;}
 
@@ -138,6 +156,10 @@ html, body {
 .ph5 {
     padding-left: 4rem;
     padding-right: 4rem;
+}
+.pv4 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .ma0 {margin: 0;} 
