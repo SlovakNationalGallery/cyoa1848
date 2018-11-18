@@ -757,6 +757,37 @@ tw-story[tags*="bg-beautifulwoman-2"][tags*="speaker-hodza"] {
     background-blend-mode: normal, overlay;
 }
 
+/* bg-rebels */
+tw-story[tags*="bg-rebels"]:not([tags*='speaker-']) {
+    background-image: url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-rebels.jpg);
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: overlay;
+}
+tw-story[tags*="bg-rebels"][tags*="speaker-stur"] {
+    background-image: 
+        url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-stur.gif),
+        url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-rebels.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-rebels"][tags*="speaker-hurban"] {
+    background-image: 
+        url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hurban.gif),
+        url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-rebels.jpg);
+    background-position: 99% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+tw-story[tags*="bg-rebels"][tags*="speaker-hodza"] {
+    background-image: 
+        url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/speaker-hodza.gif),
+        url(https://raw.githubusercontent.com/SlovakNationalGallery/cyoa1848/master/img/bg-rebels.jpg);
+    background-position: 7% 100%, center;
+    background-color: rgba(0,0,0,0.55);
+    background-blend-mode: normal, overlay;
+}
+
 /**********/
 /* Modals */
 /**********/
