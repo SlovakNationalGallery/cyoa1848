@@ -846,3 +846,16 @@ tw-story[tags*="bg-rebels"][tags*="speaker-hodza"] {
 .modal-item-stamp        {background-image: url(../img/i-stamp-popup.svg);}
 .modal-item-gun          {background-image: url(../img/i-gun-popup.svg);}
 .modal-item-penandletter {background-image: url(../img/i-penandletter-popup.svg);}
+
+.modal-item-fist {background-image: url(../img/i-fistumulator-0.svg);}
+.modal-item-fist[data-step="0"] {background-image: url(../img/i-fistumulator-0.svg);}
+.modal-item-fist[data-step="1"] {background-image: url(../img/i-fistumulator-1.svg);}
+.modal-item-fist[data-step="2"] {background-image: url(../img/i-fistumulator-2.svg);}
+.modal-item-fist[data-step="3"] {background-image: url(../img/i-fistumulator-3.svg);}
+.modal-item-fist[data-step="4"] {background-image: url(../img/i-fistumulator-4.svg);}
+.modal-item-fist[data-step="5"] {background-image: url(../img/i-fistumulator-5.svg);}
+.modal-item-fist[data-step="6"] {background-image: url(../img/i-fistumulator-6.svg);}
+.modal-item-fist[data-step="7"] {background-image: url(../img/i-fistumulator-7.svg);}
+.modal-item-fist[data-step="8"] {background-image: url(../img/i-fistumulator-8.svg);}
+.modal-item-fist[data-step="9"] {background-image: url(../img/i-fistumulator-9.svg);}
+.modal-item-fist[data-step="10"] {background-image: url(../img/i-fistumulator-10.svg);}
