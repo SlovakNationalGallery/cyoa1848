@@ -58,17 +58,20 @@ function update_ui_accumulator () {
 	$('#accumulator-counter').text(harlowe.State.variables.fistumulator);
 	// bar
 	var ratio = get_fistumulator_step();
-	$('#accumulator-bar').attr('data-step', ratio);
+	$('#accumulator-bar').attr('data-step', ratio).addClass('animated pulse');
+	window.setTimeout(function () {
+		$('#accumulator-bar').removeClass('animated pulse');	
+	}, 1000);
 }
 
 function activate_inventory_item (item) {
 	console.log('activate');
 	console.log(item);
-	$('.inventory-'+item).addClass('active animated tada');
+	$('.inventory-'+item).addClass('active animated pulse');
 }
 
 function deactivate_inventory_item (item) {
-	$('.inventory-'+item).removeClass('active animated tada');
+	$('.inventory-'+item).removeClass('active animated pulse');
 }
 
 function update_ui_inventory () {
@@ -80,13 +83,13 @@ function update_ui_inventory () {
 		'namecard'
 	];
 	inventory_items.forEach(item => {
-		harlowe.State.variables[item] ? window.setTimeout(activate_inventory_item, 1000, item) : deactivate_inventory_item(item);
+		harlowe.State.variables[item] ? activate_inventory_item(item) : deactivate_inventory_item(item);
 	})
 }
 
 function update_ui () {
-	update_ui_accumulator();
-	update_ui_inventory();
+	window.setTimeout(update_ui_accumulator, 1000);
+	window.setTimeout(update_ui_inventory, 1000);
 }
 
 // make vars accessible to JS and funcs to Harlowe Script
@@ -145,7 +148,7 @@ Ako zareaguješ na výzvu Národnej rady?
 A ty dobrovoľník, ako mu odpovieš?
 &lt;script&gt;harlowe.update_ui();&lt;/script&gt;
 {[&lt;div class=&quot;modal-bg animated fadeIn&quot;&gt;&lt;div class=&quot;modal-content&quot;&gt;&lt;div class=&quot;modal-border&quot;&gt;
-	&lt;div class=&quot;modal-item modal-item-fist animated tada delay-1s&quot;&gt;&lt;/div&gt;
+	(print: &#39;&lt;div class=&quot;modal-item modal-item-fist animated tada delay-1s&quot; data-step=&quot;&#39;+(text: (round: 10 * $fistumulator / $fistumulator_max))+&#39;&quot;&gt;&lt;/div&gt;&#39;)
 	&lt;h1 class=&quot;&quot;&gt;Hurá, sláva!&lt;/h1&gt;
 	K povstaniu sa pridali ďalší dobrovoľníci!
 	Svojim odvážnym počínaním motivuj k činu ľud Slovenský aj naďalej!
@@ -443,7 +446,7 @@ Ak už máš brko, k posteli Hurbanovej sadáš si a on ti takto [[LIST DIKTUJE.
 (link: &quot;Slováci!&quot;)[&quot;Vyhlasujeme povstanie slovenské a okolité obce vyzývame pod zástavy za práva národné naše bojovať!“ ]
 &lt;script&gt;harlowe.update_ui();&lt;/script&gt;
 (live: 5s)[(t8n:&quot;dissolve&quot;)[Potom stráže rozostavíš, a mužstvo po dobrej večeri zaspí snom spravodlivých! Keď v tom dve hodiny po polnoci, padnú dva {[&lt;div class=&quot;modal-bg animated fadeIn&quot;&gt;&lt;div class=&quot;modal-content&quot;&gt;&lt;div class=&quot;modal-border&quot;&gt;
-	&lt;div class=&quot;modal-item modal-item-fist animated tada delay-1s&quot;&gt;&lt;/div&gt;
+	(print: &#39;&lt;div class=&quot;modal-item modal-item-fist animated tada delay-1s&quot; data-step=&quot;&#39;+(text: (round: 10 * $fistumulator / $fistumulator_max))+&#39;&quot;&gt;&lt;/div&gt;&#39;)
 	&lt;h1 class=&quot;&quot;&gt;Gratulujeme!&lt;/h1&gt;
 	K povstaniu sa pridali ďalší dobrovoľníci!
 	Svojou odvahou ideš ľudu Slovenskému príkladom!
@@ -477,15 +480,16 @@ Riadne si pištoľ za pás upevni a na koňa rýchlo nasadaj. Maďarského špi�
 
 (set: $fistumulator to $fistumulator + 10)
 &lt;script&gt;harlowe.update_ui();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="69" name="test modal" tags="bg-nature speaker-hurban speaker-hodza" position="1279,179" size="100,100">some passage here 
+(set: $fistumulator to 5000)
 {[&lt;div class=&quot;modal-bg animated fadeIn&quot;&gt;&lt;div class=&quot;modal-content&quot;&gt;&lt;div class=&quot;modal-border&quot;&gt;
-	&lt;div class=&quot;modal-item modal-item-namecard animated tada delay-1s&quot;&gt;&lt;/div&gt;
+	&lt;div class=&quot;modal-item modal-item-gun animated tada delay-1s&quot;&gt;&lt;/div&gt;
 	&lt;h1 class=&quot;&quot;&gt;Modal Heading&lt;/h1&gt;
 	Modal Text that is so long that it will eventually span multiple lines.
 	[[Button Text-&gt;Modal target]]
 &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;](modal-test|}
 (link-repeat:&quot;Modal Trigger Text&quot;)[(show:?modal-test)]
 {[&lt;div class=&quot;modal-bg animated fadeIn&quot;&gt;&lt;div class=&quot;modal-content&quot;&gt;&lt;div class=&quot;modal-border&quot;&gt;
-	&lt;div class=&quot;modal-item modal-item-fist animated tada delay-1s&quot;&gt;&lt;/div&gt;
+	(print: &#39;&lt;div class=&quot;modal-item modal-item-fist animated tada delay-1s&quot; data-step=&quot;&#39;+(text: (round: 10 * $fistumulator / $fistumulator_max))+&#39;&quot;&gt;&lt;/div&gt;&#39;)
 	&lt;h1 class=&quot;&quot;&gt;Modal Heading&lt;/h1&gt;
 	Modal Text that is so long that it will eventually span multiple lines.
 	[[Button Text-&gt;Modal target]]
