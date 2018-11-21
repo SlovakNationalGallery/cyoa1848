@@ -814,7 +814,7 @@ tw-story[tags*="bg-rebels"][tags*="speaker-hodza"] {
     line-height: 52px;
 }
 
-.modal-content tw-expression {
+.modal-content tw-expression[name="link-goto"] {
     margin-top: 40px;
     display: block;
 }
@@ -836,7 +836,7 @@ tw-story[tags*="bg-rebels"][tags*="speaker-hodza"] {
 }
 
 .modal-item {
-    margin: 50px auto;
+    margin: 0 auto 30px;
     width: 182px;
     height: 182px;
     background-size: 182px 182px;
