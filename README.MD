@@ -1,31 +1,5 @@
-## Replacements in exported Twine file
+## How to integrate story exported from Twine editor
 
-Save html file exported from Twine as `index.html`.
+Copy the `<tw-storydata>` element and all its content from the exported story file and paste it in place of the `<tw-storydata>` element in `story.html`.
 
-At end of head, insert:
-```
-<link rel="stylesheet" type="text/css" href="./css/fonts.css"/>
-<link rel="stylesheet" type="text/css" href="./css/cyoa48.css">
-```
-
-In Twine engine code JS
-
-replace the following two buttons:
-
-```
-<tw-icon tabindex=0 class="undo" title="Undo">&#8630;</tw-icon>
-```
-with:
-```
-<tw-icon tabindex=0 class="undo" title="Undo"></tw-icon>
-```
-
-and
-
-```
-<tw-icon tabindex=0 class="redo" title="Redo">&#8631;</tw-icon>
-```
-with:
-```
-<tw-icon tabindex=0 class="redo" title="Redo"></tw-icon>
-```
+Make sure to export story from Twine in the (default) Harlow story format.
