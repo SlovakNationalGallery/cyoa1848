@@ -24,7 +24,7 @@ html, body {
 
 .bg-landing {
     background-image: url(../img/bg-landing.jpg);
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.6);
     background-blend-mode: overlay;
     background-size: cover;
 }
@@ -211,10 +211,10 @@ html, body {
         background-position: 0 10%;
     }
     5% {
-        background-color: rgba(0,0,0,0.7);
+        background-color: rgba(0,0,0,0.6);
     }
     95% {
-        background-color: rgba(0,0,0,0.7);
+        background-color: rgba(0,0,0,0.6);
     }
     100% { 
         background-color: rgba(0,0,0,1);
